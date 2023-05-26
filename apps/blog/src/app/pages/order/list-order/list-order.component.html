@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row ">
+  <div class="p-2  mb-3">
+    <nav class="d-flex">
+      <h6 class="mb-0">
+        <a routerLink="/blog/addOrder" class="text-reset me-1">add order</a>
+        <span>/</span>
+        <a routerLink="/blog" class="text-reset me-1"><u>Dashboard</u></a>
+      </h6>
+    </nav>
+  </div>
+  <table class="table align-middle mb-0 bg-white col-md-6 col-sm-6">
+    <thead class="bg-light">
+      <tr>
+        <th scope="col">_id</th>
+        <th scope="col">country</th>
+        <th>city</th>
+        <th scope="col">phone</th>
+        <th scope="col">shippingAddress</th>
+        <th>status</th>
+        <th>total</th>
+        <th>action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <td>
+          <div class="d-flex align-items-center">
+            <div class="ms-3">
+              <p class="text-muted mb-0">{{ order._id }}</p>
+            </div>
+          </div>
+        </td>
+        <td>
+          <p class="text-muted mb-0">{{ order.city }}</p>
+        </td>
+        <td>{{ order.country }}</td>
+        <td>
+          <span class="badge badge-success rounded-pill d-inline">{{ order.phone }}</span>
+        </td>
+        <td>
+          <p class="text-muted mb-0">{{ order.shippingAddress }}</p>
+        </td>
+        <td>
+          <select class="form-select"  aria-label="Default select example" formControlName="category">
+            <!-- <option value="" disabled selected>Choose a country</option> -->
+            <option  *ngFor="let order of orders" [ngValue]="order._id">{{ order.status }}</option>
+          </select>
+        </td>
+        <td>
+          <p class="text-muted mb-0">${{ order.total }}</p>
+        </td>
+
+        <td>
+          <div class="text-end">
+            <button  class="btn btn-info btn-rounded btn-sm fw-bold me-1" ><i class="fa fa-pencil-square-o" aria-hidden="true" ></i>edite</button>
+            <button class="btn btn-danger btn-rounded btn-sm fw-bold"(click)="destroyOrder(order?._id ??'')"><i class="fa fa-trash-o" aria-hidden="true"></i>delete</button></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+</div>

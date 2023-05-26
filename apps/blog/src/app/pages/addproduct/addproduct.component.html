@@ -1,0 +1,363 @@
+ <!--
+<div class=" mt-5">
+  <section class="">
+    <div class="container-fluid h-custom">
+      <div class="row  h-100">
+         <div class="col-md-6 col-lg-6 col-xl-5 mt-5">
+          <img
+            src="https://www.teamly.com/blog/wp-content/uploads/2021/12/Master-Task-List.png"
+            class="img-fluid"
+            alt="Sample image"
+          />
+        </div>
+        <div class="col-md-6 col-lg-6 col-xl-4 offset-xl-1">
+          <form [formGroup]="productForm" (ngSubmit)="saveProduct()"  >
+            <div class="form-outline mb-4">
+              <input
+                formControlName="title"
+                type="text"
+                id="title"
+                name="title"
+                placeholder="Title:"
+                class="form-control"/>
+                <div
+                *ngIf="
+                  (productForm.get('title')?.invalid &&
+                  productForm.get('title')?.touched) ||
+                  productForm.get('title')?.dirty
+                "
+              >
+                <div class="text-danger">
+                  <div *ngIf="productForm.get('title')?.errors?.['required']">
+                    This field is requrid !
+                  </div>
+                  <div *ngIf="productForm.get('title')?.errors?.['minlength']">
+                    This field must have more than 4 caracters
+                  </div>
+                  <div *ngIf="productForm.get('title')?.errors?.['maxlength']">
+                    The max caracters is 10
+                  </div>
+                  <div *ngIf="productForm.get('title')?.errors?.['pattern']"></div>
+                </div>
+              </div>
+              </div>
+
+            <div class="form-outline mb-4">
+              <textarea
+                formControlName="description"
+                type="text"
+                name="description"
+                placeholder="description:"
+                class="form-control"
+              ></textarea>
+              <div
+                *ngIf="
+                  (productForm.get('description')?.invalid &&
+                  productForm.get('description')?.touched) ||
+                  productForm.get('description')?.dirty
+                "
+              >
+                <div class="text-danger">
+                  <div *ngIf="productForm.get('description')?.errors?.['required']">
+                    This field is requrid !
+                  </div>
+                  <div *ngIf="productForm.get('description')?.errors?.['minlength']">
+                    This field must have more than 10 caracters
+                  </div>
+                  <div *ngIf="productForm.get('description')?.errors?.['maxlength']">
+                    The max caracters is 20
+                  </div>
+                  <div *ngIf="productForm.get('description')?.errors?.['pattern']"></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-outline mb-4">
+              <textarea
+                formControlName="content"
+                type="text"
+                name="content"
+                placeholder="content:"
+                class="form-control"
+              ></textarea>
+              <div
+                *ngIf="
+                  (productForm.get('content')?.invalid &&
+                  productForm.get('content')?.touched) ||
+                  productForm.get('content')?.dirty
+                "
+              >
+                <div class="text-danger">
+                  <div *ngIf="productForm.get('content')?.errors?.['required']">
+                    This field is requrid !
+                  </div>
+                  <div *ngIf="productForm.get('content')?.errors?.['minlength']">
+                    This field must have more than 10 caracters
+                  </div>
+                  <div *ngIf="productForm.get('content')?.errors?.['maxlength']">
+                    The max caracters is 20
+                  </div>
+                  <div *ngIf="productForm.get('content')?.errors?.['pattern']"></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-outline mb-4">
+              <input  type="file" id="thumbnail" name="thumbnail" placeholder="Thumbnail:" class="form-control" (change)="onSelectFile($event)"/>
+              <div
+              *ngIf="
+                (productForm.get('thumbnail')?.invalid &&
+                productForm.get('thumbnail')?.touched) ||
+                productForm.get('thumbnail')?.dirty
+              "
+            >
+              <div class="text-danger">
+                <div *ngIf="productForm.get('thumbnail')?.errors?.['required']">
+                  This field is requrid !
+                </div>
+              </div>
+            </div>
+                 </div>
+
+            <div class="form-outline mb-4">
+           <input formControlName="countStock" type="number" name="countStock" id="countStock" placeholder="CountStock:" class="form-control"/>
+           <div
+           *ngIf="
+             (productForm.get('countStock')?.invalid &&
+             productForm.get('countStock')?.touched) ||
+             productForm.get('countStock')?.dirty
+           "
+         >
+           <div class="text-danger">
+             <div *ngIf="productForm.get('countStock')?.errors?.['required']">
+               This field is requrid !
+             </div>
+           </div>
+         </div>
+              </div>
+              <div class="form-outline mb-4">
+                <input formControlName="brand" name="brand" type="text" id="brand" placeholder="Brand:" class="form-control"/>
+                <div
+                *ngIf="
+                  (productForm.get('brand')?.invalid &&
+                  productForm.get('brand')?.touched) ||
+                  productForm.get('brand')?.dirty
+                "
+              >
+                <div class="text-danger">
+                  <div *ngIf="productForm.get('brand')?.errors?.['required']">
+                    This field is requrid !
+                  </div>
+                  <div *ngIf="productForm.get('brand')?.errors?.['minlength']">
+                    This field must have more than 4 caracters
+                  </div>
+                  <div *ngIf="productForm.get('brand')?.errors?.['maxlength']">
+                    The max caracters is 10
+                  </div>
+                  <div *ngIf="productForm.get('brand')?.errors?.['pattern']"></div>
+                </div>
+              </div>
+                   </div>
+
+                <div class="form-outline mb-4">
+                        <input formControlName="price" name="price" type="number" id="price" placeholder="Price:" class="form-control"/>
+                        <div
+           *ngIf="
+             (productForm.get('price')?.invalid &&
+             productForm.get('price')?.touched) ||
+             productForm.get('price')?.dirty
+           "
+         >
+           <div class="text-danger">
+             <div *ngIf="productForm.get('price')?.errors?.['required']">
+               This field is requrid !
+             </div>
+           </div>
+         </div>
+                        </div>
+
+                        <select class="form-select mb-2" aria-label="Default select example" formControlName="category">
+                          <option *ngFor="let cat of categories" [ngValue]="cat._id">{{ cat.label }}</option>
+                        </select>
+            <div class="d-grid gap-2">
+              <button class="btn btn-primary" type="submit" >
+                <i class="fa fa-plus" aria-hidden="true"></i> ADD
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</div> -->
+<div class=" container-fluid shadow-2-strong">
+  <div class="p-2  mb-3">
+    <nav class="d-flex">
+      <h6 class="mb-0">
+        <a routerLink="/blog/listProduct" class="text-reset me-1">list product</a>
+        <span>/</span>
+        <a routerLink="/blog" class="text-reset me-1"><u>Dashboard</u></a>
+      </h6>
+    </nav>
+  </div>
+  <div class="row">
+    <form [formGroup]="productForm" (ngSubmit)="saveProduct()">
+      <!-- 2 column grid layout with text inputs for the first and last names -->
+      <div class="row mb-4">
+        <div class="form-outline mb-4">
+          <label class="form-label" >Title:</label>
+          <input formControlName="title" type="text" id="title" name="title"  class="form-control rounded shadow-1-strong" />
+          <div
+          *ngIf="
+            (productForm.get('title')?.invalid &&
+            productForm.get('title')?.touched) ||
+            productForm.get('title')?.dirty
+          "
+        >
+          <div class="text-danger">
+            <div *ngIf="productForm.get('title')?.errors?.['required']">
+              This field is requrid !
+            </div>
+            <div *ngIf="productForm.get('title')?.errors?.['minlength']">
+              This field must have more than 4 caracters
+            </div>
+            <div *ngIf="productForm.get('title')?.errors?.['maxlength']">
+              The max caracters is 10
+            </div>
+            <div *ngIf="productForm.get('title')?.errors?.['pattern']"></div>
+          </div>
+        </div>
+        </div>
+        <div class="col">
+       <div class="col">
+        <div class="form-outline mb-4">
+          <label class="form-label" >Description:</label>
+          <textarea formControlName="description"  name="description" class="form-control rounded shadow-1-strong" id="description" rows="3"></textarea>
+          <div
+                *ngIf="
+                  (productForm.get('description')?.invalid &&
+                  productForm.get('description')?.touched) ||
+                  productForm.get('description')?.dirty
+                "
+              >
+                <div class="text-danger">
+                  <div *ngIf="productForm.get('description')?.errors?.['required']">
+                    This field is requrid !
+                  </div>
+                  <div *ngIf="productForm.get('description')?.errors?.['minlength']">
+                    This field must have more than 10 caracters
+                  </div>
+                  <div *ngIf="productForm.get('description')?.errors?.['maxlength']">
+                    The max caracters is 20
+                  </div>
+                  <div *ngIf="productForm.get('description')?.errors?.['pattern']"></div>
+                </div>
+              </div>
+        </div>
+        </div>
+          <div class="form-outline">
+            <label class="form-label" >Brand</label>
+            <input formControlName="brand" type="text" name="brand" id="brand" class="form-control rounded shadow-1-strong" />
+            <div
+                *ngIf="
+                  (productForm.get('brand')?.invalid &&
+                  productForm.get('brand')?.touched) ||
+                  productForm.get('brand')?.dirty
+                "
+              >
+                <div class="text-danger">
+                  <div *ngIf="productForm.get('brand')?.errors?.['required']">
+                    This field is requrid !
+                  </div>
+                  <div *ngIf="productForm.get('brand')?.errors?.['minlength']">
+                    This field must have more than 4 caracters
+                  </div>
+                  <div *ngIf="productForm.get('brand')?.errors?.['maxlength']">
+                    The max caracters is 10
+                  </div>
+                  <div *ngIf="productForm.get('brand')?.errors?.['pattern']"></div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-outline mb-4">
+            <label class="form-label" >Content:</label>
+            <textarea formControlName="content" class="form-control rounded shadow-1-strong" name="content" id="content" rows="3"></textarea>
+            <div
+            *ngIf="
+              (productForm.get('content')?.invalid &&
+              productForm.get('content')?.touched) ||
+              productForm.get('content')?.dirty
+            "
+          >
+            <div class="text-danger">
+              <div *ngIf="productForm.get('content')?.errors?.['required']">
+                This field is requrid !
+              </div>
+              <div *ngIf="productForm.get('content')?.errors?.['minlength']">
+                This field must have more than 10 caracters
+              </div>
+              <div *ngIf="productForm.get('content')?.errors?.['maxlength']">
+                The max caracters is 20
+              </div>
+              <div *ngIf="productForm.get('content')?.errors?.['pattern']"></div>
+            </div>
+          </div>
+          </div>
+          <div class="form-outline">
+            <label class="form-label" >CountStock:</label>
+            <input formControlName="countStock" type="number" name="countStock" id="countStock" class="form-control rounded shadow-1-strong" />
+            <div
+            *ngIf="
+              (productForm.get('countStock')?.invalid &&
+              productForm.get('countStock')?.touched) ||
+              productForm.get('countStock')?.dirty
+            "
+          >
+            <div class="text-danger">
+              <div *ngIf="productForm.get('countStock')?.errors?.['required']">
+                This field is requrid !
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <!-- Text input -->
+      <div class="form-outline mb-4 ">
+        <label class="form-label" >Price:</label>
+        <input formControlName="price" name="price" type="number" id="price" class="form-control rounded shadow-1-strong" />
+        <div
+        *ngIf="
+          (productForm.get('price')?.invalid &&
+          productForm.get('price')?.touched) ||
+          productForm.get('price')?.dirty
+        "
+      >
+        <div class="text-danger">
+          <div *ngIf="productForm.get('price')?.errors?.['required']">
+            This field is requrid !
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <!-- Text input -->
+      <div class="form-outline mb-4  ">
+        <label class="form-label" >Thumbnail:</label>
+        <input type="file" name="thumbnail" id="thumbnail" class="form-control rounded shadow-1-strong" (change)="onSelectFile($event)" />
+      </div>
+      <!-- Number input -->
+      <div class="form-outline mb-4   ">
+        <label class="form-label" >Category:</label>
+        <select class="form-select mb-2 rounded shadow-1-strong"  aria-label="Default select example" formControlName="category">
+          <!-- <option selected>Category</option> -->
+          <option selected *ngFor="let cat of categories" [ngValue]="cat._id">{{ cat.label }}</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block mb-4">add</button>
+    </form>
+  </div>
+</div>
+
+
+

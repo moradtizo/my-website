@@ -1,0 +1,70 @@
+<div class="p-2  mb-3">
+  <nav class="d-flex">
+    <h6 class="mb-0">
+      <a routerLink="/blog/listOrder" class="text-reset me-1">list order</a>
+      <span>/</span>
+      <a routerLink="/blog" class="text-reset me-1"><u>Dashboard</u></a>
+    </h6>
+  </nav>
+</div>
+<form>
+  <!-- 2 column grid layout with text inputs for the first and last names -->
+  <div class="row mb-4">
+    <div class="col">
+      <div class="form-outline">
+        <div class="form-outline mb-4">
+          <label class="form-label">Country:</label>
+          <select class="form-select  rounded-0 shadow-0-strong "  (change)="onCountrySelected()">
+            <option value="" disabled selected>Choose a country</option>
+            <option *ngFor="let country of countries" [value]="country.alpha2Code">{{ country.name }}</option>
+          </select>
+        </div>
+        <!-- <input formControlName="country" type="text" id="country" name="country" class="form-control rounded-pill shadow-1-strong" /> -->
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-outline">
+        <label class="form-label">City:</label>
+        <input formControlName="city" type="text" id="city" name="city" class="form-control rounded-0 shadow-1-strong" />
+      </div>
+    </div>
+  </div>
+
+  <div class="form-outline mb-4">
+    <label class="form-label">ShippingAddress:</label>
+    <input formControlName="shippingAddress" type="text" id="shippingAddress"  name="shippingAddress" class="form-control rounded-0 shadow-1-strong" />
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <!-- Name input -->
+      <div class="form-outline">
+        <label class="form-label" for="form8Example1">Name:</label>
+        <input type="text" id="form8Example1" class="form-control rounded-0 shadow-1-strong" />
+      </div>
+    </div>
+    <div class="col">
+      <!-- Email input -->
+      <div class="form-outline">
+        <label class="form-label" for="form8Example2">Email address:</label>
+        <input type="email" id="form8Example2" class="form-control rounded-0 shadow-1-strong" />
+      </div>
+    </div>
+  </div>
+  <div class="form-outline mb-4">
+    <label class="form-label" >Status:</label>
+    <input formControlName="status" type="text" id="Status" name="status" class="form-control rounded-0 shadow-1-strong" />
+  </div>
+
+  <!-- <div class="form-outline mb-4">
+    <label class="form-label" >Phone:</label>
+<input formControlName="phone" type="number" id="phone" name="phone" class="form-control rounded-pill shadow-1-strong" />
+  </div> -->
+
+
+
+
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-primary btn-block mb-4">add</button>
+</form>
+

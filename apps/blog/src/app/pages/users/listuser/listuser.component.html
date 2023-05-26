@@ -1,0 +1,57 @@
+<div class="p-2  mb-3">
+  <nav class="d-flex">
+    <h6 class="mb-0">
+      <!-- <a  class="text-reset me-1" routerLink="/blog/edit" >Home</a>
+      <span>/</span> -->
+      <!-- <a routerLink="/blog/addCategory" class="text-reset me-1">add product</a>
+      <span>/</span> -->
+      <a routerLink="/blog" class="text-reset me-1"><u>Dashboard</u></a>
+    </h6>
+  </nav>
+</div>
+<div class="row">
+  <table class="table align-middle  bg-white mb-2 me-5">
+    <tbody>
+      <tr *ngFor="let user of Users">
+        <td>
+          <div class="d-flex align-items-center">
+            <img
+                src="https://avatars.githubusercontent.com/u/55709822?s=400&u=65a6cec4dd3a774d554e779560d6bedd18e9d7e4&v=4"
+                class="rounded-circle"
+                alt=""
+                style="width: 45px; height: 45px"
+                />
+            <div class="ms-3">
+              <p class="fw-bold mb-1">{{ user.name }}</p>
+              <p class="text-muted mb-0">{{ user.email }}</p>
+            </div>
+          </div>
+        </td>
+        <td>
+          <p class="fw-normal mb-1">{{ user.country }}</p>
+          <p class="text-muted mb-0">{{ user.city }}</p>
+        </td>
+        <td>
+          <span class="badge-secondary rounded-2 d-inline">{{ user.phone }}</span>
+        </td>
+        <td></td>
+        <td>
+          <button
+                  type="button"
+                  class="btn btn-info btn-rounded btn-sm fw-bold me-1"
+                  data-mdb-ripple-color="dark"
+                  >
+            Edit
+          </button>
+          <button
+          type="button"
+          class="btn btn-danger btn-rounded btn-sm fw-bold"
+          >
+    delete
+  </button>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>

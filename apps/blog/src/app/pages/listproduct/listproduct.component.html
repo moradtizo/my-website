@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-md-12">
+      <!-- product-list.component.html -->
+      <div class="p-2  mb-3">
+        <nav class="d-flex">
+          <h6 class="mb-0">
+            <a routerLink="/blog/addProduct" class="text-reset me-1">add product</a>
+            <span>/</span>
+            <a routerLink="/blog" class="text-reset me-1"><u>Dashboard</u></a>
+          </h6>
+        </nav>
+      </div>
+
+<div class="container-fluid">
+  <table class="table table-striped">
+    <thead class="bg-light">
+      <tr>
+        <th>Product</th>
+        <th>Title</th>
+        <th>description</th>
+        <th>brand</th>
+        <th>countStock</th>
+        <th>price</th>
+        <th>rating</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>
+          <div class="d-flex align-items-center">
+            <img
+                [src]="product.thumbnail"
+                class="rounded-1"
+                alt=""
+                style="width: 45px; height: 45px"
+                />
+
+          </div>
+        </td>
+        <td>{{ product.title }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.brand }}</td>
+        <td>{{ product.countStock }}</td>
+        <td>${{ product.price }}</td>
+        <td><rating class="star " ></rating></td>
+        <td>
+          <div class="text-end">
+            <button [routerLink]="['/blog/editProduct/',product._id]" class="btn btn-info btn-rounded btn-sm fw-bold me-1" ><i class="fa fa-pencil-square-o" aria-hidden="true" ></i>edite</button>
+            <button class="btn btn-danger btn-rounded btn-sm fw-bold" (click)="destroyProduct(product?._id ?? '')"><i class="fa fa-trash-o" aria-hidden="true"></i>delete</button></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  </div>
+</div>

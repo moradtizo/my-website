@@ -1,0 +1,154 @@
+
+<div class="wrapper d-flex align-items-stretch" >
+  <ng-container *ngIf="login()">
+  <nav id="sidebar">
+    <!-- <div class="custom-menu">
+      <button type="button" data-bs-toggle="collapse" id="sidebarCollapse" class="btn btn-primary">
+        <i class="fa fa-bars"></i>
+        <span class="sr-only">Toggle Menu</span>
+      </button>
+    </div> -->
+    <!-- <p>
+      <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+        Toggle width collapse
+      </button>
+    </p> -->
+    <div class="dropdown">
+      <a class="nav-link dropdown-toggle arrow-none nav-user px-0" data-bs-toggle="dropdown"  role="button" aria-expanded="true">
+
+              <img src="https://avatars.githubusercontent.com/u/55709822?s=400&u=65a6cec4dd3a774d554e779560d6bedd18e9d7e4&v=4" alt="user-image" width="40" height="40" class="rounded-2">
+
+          <span class="d-lg-flex flex-column gap-1 d-none" *ngIf="user">
+              <h5 class="my-0 text-light logo"><span class="text-center  e mt-2 ">{{user}}</span></h5>
+              <h5 class="my-0 text-light logo"><span class="text-center  e mt-2 ">{{email}}</span></h5>
+          </span>
+      </a>
+      <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown me-1">
+          <!-- item-->
+          <a href="javascript:void(0);" class="dropdown-item">
+              <i class="mdi mdi-account-edit me-1"></i>
+              <span>Settings</span>
+          </a>
+          <!-- item-->
+          <a href="javascript:void(0);" class="dropdown-item">
+              <i class="mdi mdi-lifebuoy me-1"></i>
+              <span>Support</span>
+          </a>
+          <!-- item-->
+          <a href="javascript:void(0);" class="dropdown-item" (click)="logOut()">
+              <i class="mdi mdi-logout me-1"></i>
+              <span>Logout</span>
+          </a>
+      </div>
+  </div>
+    <div class="p-4">
+      <h1><a  class="logo">next-shop <span>admin panel</span></a>
+     </h1>
+
+     <!-- <div class="dropdown pb-4">
+      <a
+        href="#"
+        class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+        id="dropdownUser1"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <img
+          src="https://avatars.githubusercontent.com/u/55709822?s=400&u=65a6cec4dd3a774d554e779560d6bedd18e9d7e4&v=4"
+          alt="hugenerd"
+          width="40"
+          height="40"
+          class="rounded-circle"
+        />
+        <span class="d-none d-sm-inline mx-1">Admin</span>
+      </a>
+      <ul
+        class="dropdown-menu dropdown-menu-dark text-small shadow text-bg-dark"
+        aria-labelledby="dropdownUser1"
+      >
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><a class="dropdown-item" href="#">Settings</a></li>
+        <li><a class="dropdown-item" href="#">Sign out</a></li>
+      </ul>
+    </div> -->
+      <ul class="list-unstyled components mb-5">
+        <li class="active">
+          <a routerLink="/blog"><span class=" mr-3"> <i class="fa fa-tachometer" aria-hidden="true"></i></span>Dashboard</a>
+        </li>
+        <li>
+          <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#category" aria-expanded="false" aria-controls="category">
+            <div class="sb-nav-link-icon"></div>
+            <span class="mr-3"><i class="fa fa-th-large" aria-hidden="true"></i></span> category
+            <div class="sb-sidenav-collapse-arrow"></div>
+          </a>
+          <div class="collapse" id="category" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+            <nav class="">
+              <a class="nav-link" routerLink="/blog/category"><span class="mx-3 me-1"><i class="fa fa-chevron-right" aria-hidden="true"></i></span><i class="fa fa-list" aria-hidden="true"></i> category</a>
+              <a class="nav-link" routerLink="/blog/addCategory"><span class="mx-3 me-1"><i class="fa fa-chevron-right" aria-hidden="true"></i></span><i class="fa fa-plus" aria-hidden="true"></i> category</a>
+            </nav>
+          </div>
+        </li>
+        <li>
+          <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#product" aria-expanded="false" aria-controls="product">
+            <div class="sb-nav-link-icon"></div>
+            <span class="mr-3"><i class="fa fa-product-hunt" aria-hidden="true"></i></span> product
+            <div class="sb-sidenav-collapse-arrow"></div>
+          </a>
+          <div class="collapse" id="product" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+            <nav class="">
+              <a class="nav-link" routerLink="/blog/listProduct"><span class="mx-3 me-1"><i class="fa fa-chevron-right" aria-hidden="true"></i></span><i class="fa fa-list" aria-hidden="true"></i> product</a>
+              <a class="nav-link" routerLink="/blog/addProduct"><span class="mx-3 me-1"><i class="fa fa-chevron-right" aria-hidden="true"></i></span><i class="fa fa-plus" aria-hidden="true"></i> product</a>
+            </nav>
+          </div>
+        </li>
+        <li>
+          <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#order" aria-expanded="false" aria-controls="product">
+            <div class="sb-nav-link-icon"></div>
+            <span class="mr-3"><i class="fa fa-first-order" aria-hidden="true"></i></span> order
+            <div class="sb-sidenav-collapse-arrow"></div>
+          </a>
+          <div class="collapse" id="order" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+            <nav class="">
+              <a class="nav-link" routerLink="/blog/listOrder"><span class="mx-3 me-1"><i class="fa fa-chevron-right" aria-hidden="true"></i></span><i class="fa fa-list" aria-hidden="true"></i> order</a>
+              <a class="nav-link" routerLink="/blog/addOrder"><span class="mx-3 me-1"><i class="fa fa-chevron-right" aria-hidden="true"></i></span><i class="fa fa-plus" aria-hidden="true"></i> order</a>
+            </nav>
+          </div>
+        </li>
+        <li>
+          <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#user" aria-expanded="false" aria-controls="product">
+            <div class="sb-nav-link-icon"></div>
+            <span class="mr-3"><i class="fa fa-user" aria-hidden="true"></i></span> user
+            <div class="sb-sidenav-collapse-arrow"></div>
+          </a>
+          <div class="collapse" id="user" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+            <nav class="">
+              <a class="nav-link" routerLink="/blog/listUsers"><span class="mx-3 me-1"><i class="fa fa-chevron-right" aria-hidden="true"></i></span><i class="fa fa-list" aria-hidden="true"></i> user</a>
+              <a class="nav-link" routerLink="blog/loginUsers"><span class="mx-3 me-1"><i class="fa fa-chevron-right" aria-hidden="true"></i></span><i class="fa fa-plus" aria-hidden="true"></i> user</a>
+            </nav>
+          </div>
+        </li>
+
+        <li>
+
+        </li>
+        <li>
+          <a href="#"><span class="fa fa-cogs mr-3"></span> Services</a>
+        </li>
+      </ul>
+      <div class="mb-5">
+        <form action="#" class="subscribe-form">
+          <div class="form-group d-flex">
+            <div class="icon"></div>
+            <input type="text" class="form-control" placeholder="Enter Email Address">
+          </div>
+        </form>
+      </div>
+    </div>
+  </nav>
+</ng-container>
+  <div class="col py-3">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+

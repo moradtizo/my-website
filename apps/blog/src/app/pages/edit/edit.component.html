@@ -1,0 +1,116 @@
+<!--
+<div class="row">
+  <div class="col-md-10 mx-auto mt-3">
+    <div class="modal-content ">
+      <div class="modal-body">
+        <form [formGroup]="categoryForm" (submit)="submit(categoryForm)">
+          <div class="mb-3">
+            <input type="text" name="label" formControlName="label" class="form-control" placeholder="label:" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <input type="text" name="icon" formControlName="icon" class="form-control" placeholder="icon:" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <input type="color" name="color" formControlName="color" class="form-control"  id="recipient-name">
+          </div>
+           <div class="modal-footer">
+        <button type="submit" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+      </div>
+        </form>
+      </div>
+    </div>
+  </div>
+    </div> -->
+    <div class=" container-fluid shadow-1-strong mb-4">
+      <!-- <div class="p-2  mb-3">
+        <nav class="d-flex">
+          <h6 class="mb-0">
+             <a href="" class="text-reset me-1">Home</a>
+            <span>/</span>
+            <a routerLink="/blog/category" class="text-reset me-1">listCategory</a>
+            <span>/</span>
+            <a href="" class="text-reset me-1"><u>Dashboard</u></a>
+          </h6>
+        </nav>
+      </div> -->
+      <div class="row">
+        <form [formGroup]="categoryForm" (submit)="submit(categoryForm)">
+          <!-- 2 column grid layout with text inputs for the first and last names -->
+          <div class="row mb-4">
+            <div class="col">
+              <div class="form-outline">
+                <label class="form-label">Label:</label>
+                <input formControlName="label" type="text" id="label" name="label" class="form-control rounded-pill shadow-1-strong" />
+                <div
+                *ngIf="
+                  (categoryForm.get('label')?.invalid &&
+                  categoryForm.get('label')?.touched) ||
+                  categoryForm.get('label')?.dirty
+                "
+              >
+                <div class="text-danger">
+                  <div *ngIf="categoryForm.get('label')?.errors?.['required']">
+                    This field is requrid !
+                  </div>
+                  <div *ngIf="categoryForm.get('label')?.errors?.['minlength']">
+                    This field must have more than 4 caracters
+                  </div>
+                  <div *ngIf="categoryForm.get('label')?.errors?.['maxlength']">
+                    The max caracters is 10
+                  </div>
+                  <div *ngIf="categoryForm.get('label')?.errors?.['pattern']"></div>
+                </div>
+              </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-outline">
+                <label class="form-label">Icon:</label>
+                <input formControlName="icon" type="text" id="icon" name="icon" class="form-control rounded-pill shadow-1-strong" />
+                <div
+                *ngIf="
+                  (categoryForm.get('icon')?.invalid &&
+                  categoryForm.get('icon')?.touched) ||
+                  categoryForm.get('icon')?.dirty
+                "
+              >
+                <div class="text-danger">
+                  <div *ngIf="categoryForm.get('icon')?.errors?.['required']">
+                    This field is requrid !
+                  </div>
+                  <div *ngIf="categoryForm.get('icon')?.errors?.['minlength']">
+                    This field must have more than 4 caracters
+                  </div>
+                  <div *ngIf="categoryForm.get('icon')?.errors?.['maxlength']">
+                    The max caracters is 10
+                  </div>
+                  <div *ngIf="categoryForm.get('icon')?.errors?.['pattern']"></div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Text input -->
+          <div class="form-outline mb-4">
+            <label class="form-label">Color:</label>
+            <input formControlName="color" type="color" id="color"  name="color" class="form-control rounded-pill shadow-1-strong" />
+            <div
+            *ngIf="
+              (categoryForm.get('color')?.invalid &&
+              categoryForm.get('color')?.touched) ||
+              categoryForm.get('color')?.dirty
+            "
+          >
+            <div class="text-danger">
+              <div *ngIf="categoryForm.get('color')?.errors?.['required']">
+                This field is requrid !
+              </div>
+            </div>
+          </div>
+          </div>
+          <button type="submit"class="btn btn-primary btn-block mb-4">add</button>
+        </form>
+      </div>
+    </div>
+

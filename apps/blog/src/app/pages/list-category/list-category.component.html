@@ -1,0 +1,72 @@
+
+<!-- <div class="">
+  <div class="row">
+    <div class="col-md-12 mt-2 text-center">
+      <h1>List of categories</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12  mt-3">
+      <table class="table table-hover ">
+     <thead class="text-white bg-dark">
+          <th scope="col">label</th>
+          <th scope="col">icon</th>
+          <th scope="col">color</th>
+        </thead>
+        <tbody class="">
+          <tr *ngFor="let cate of categories">
+            <td >{{cate.label}}</td>
+            <td > <i class="fa fa-3x me-2" [ngClass]="cate.icon"></i><span [ngStyle]="{background: cate.color}" class="  rounded-2 border border-1">{{ cate.icon }}</span></td>
+            <td >{{ cate.color }}
+
+<div class="text-end">
+  <button [routerLink]="['/blog/edit/',cate._id]" type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+  <button class="btn btn-dark " (click)="destroyCategory(cate?._id ?? '')"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+</div>
+</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+-->
+      <div class="p-2  mb-3">
+        <nav class="d-flex">
+          <h6 class="mb-0">
+            <!-- <a  class="text-reset me-1" routerLink="/blog/edit" >Home</a>
+            <span>/</span> -->
+            <a routerLink="/blog/addCategory" class="text-reset me-1">add product</a>
+            <span>/</span>
+            <a routerLink="/blog" class="text-reset me-1"><u>Dashboard</u></a>
+          </h6>
+        </nav>
+      </div>
+
+<div class="container-fluid">
+  <table class="table table-striped">
+    <thead class="bg-light">
+      <th scope="col">label</th>
+      <th scope="col">icon</th>
+      <th scope="col">color</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cate of categories">
+        <td>{{cate.label}}</td>
+        <td> <i class="fa fa-3x me-2" [ngClass]="cate.icon"></i><span [ngStyle]="{background: cate.color}" class="  rounded-2 border border-1">{{ cate.icon }}</span></td>
+        <td>{{ cate.color }}</td>
+        <td><div class="text-end">
+          <button [routerLink]="['/blog/edit/',cate._id]" type="button" class="btn btn-info btn-rounded btn-sm fw-bold me-1" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i>edite</button>
+          <button class="btn btn-danger btn-rounded btn-sm fw-bold " (click)="destroyCategory(cate?._id ?? '')">
+            <i class="fa fa-trash-o" aria-hidden="true"></i>delete</button>
+        </div></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
